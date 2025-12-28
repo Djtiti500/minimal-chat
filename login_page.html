@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/login_css_page.css">
+</head>
+<body>
+    <header>
+        <div id="navbar"></div>
+        <h1 class="title">Login</h1>
+    </header>
+    <section>
+        <div class="login_form">
+            <input type="email" placeholder="Email" id="email" name="email" required>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+            <button id="loginBtn" onclick="">Se connecté</button>
+        
+        </div>
+
+        <p id="message"></p>
+    </section>
+    <script src="script/users.js"></script>
+    <script>
+        const signupBtn = document.getElementById("loginBtn");
+        const message = document.getElementById("message")
+
+        signupBtn.addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email && password) {
+                const userExists = users.some(u => u.email === email && u.password === password);
+                const user = users.find(i => i.email === email && i.password === password)
+                if (userExists) {
+                    localStorage.setItem("currentUser", JSON.stringify(user));
+                    message.textContent = "Connexion réussi !"
+                    message.style.color = "green";
+                    window.location.href = "account_page.html"
+                } else {
+                    message.textContent = "Erreur : identifiant ou mot de passe incorrect";
+                    message.style.color = "red";
+                    console.log(users);
+                }
+            }
+        });
+
+        fetch("html_extention/navbar.html").then(response => response.text()).then(data => {document.getElementById('navbar').innerHTML = data}).catch(err => console.error('erreyr lors dy chargement de la navbar'))
+    </script>
+</body>
+</html>

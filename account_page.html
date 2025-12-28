@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page Car j'aime bien</title>
+    <link rel="stylesheet" href="css/account_css_page.css">
+</head>
+<body>
+    <header>
+        <div id="navbar-div">
+            <div id="navbar"></div>
+            <h1 id="welcome-message">Bonjour : </h1>
+        </div>
+    </header>
+
+    <script src="script/account.js"></script>
+    <script>
+        fetch("html_extention/navbar.html").then(response => response.text()).then(data => {document.getElementById('navbar').innerHTML = data}).catch(err => console.error('erreyr lors dy chargement de la navbar'))
+    </script>
+</body>
+</html>
