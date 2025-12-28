@@ -9,33 +9,14 @@
 <body>
     <header>
         <div id="navbar-div">
-            <button id="logoutBtn"></button>
             <div id="navbar"></div>
             <h1 id="welcome-message">Bonjour : </h1>
         </div>
     </header>
 
-    <section>
-        <button id="contactsBtn">Ajouté des contact</button>
-    </section>
-
     <script src="script/account.js"></script>
     <script>
-
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-        if (!currentUser) {
-            window.location.href = "login_page.html"
-        }
-
-        document.getElementById("contactsBtn").addEventListener("click", () => {
-            window.localStorage.href = "addContact_page.html";
-        });
-
-        document.getElementById("logoutBtn").addEventListener("click", () => {
-            localStorage.removeItem("currentUser");
-            window.location.href = "login_page.html"
-        });
-        fetch("html_extention/navbar.html").then(response => response.text()).then(data => {document.getElementById('navbar').innerHTML = data}).catch(err => console.error('erreyr lors dy chargement de la navbar'))
+        fetch("html_extention/navbar.html").then(response => response.text()).then(data => {document.getElementById('navbar').innerHTML = data}).catch(err => console.error('erreyr lors dy chargement de la navbar'));
     </script>
 </body>
 </html>

@@ -5,3 +5,7 @@ const title = document.getElementById("welcome-message")
 if (currentUser) {
     title.textContent = `Bonjour : ${currentUser.username}`
 }
+
+if (!currentUser) {
+    window.location.href = "login_page.html"
+}
